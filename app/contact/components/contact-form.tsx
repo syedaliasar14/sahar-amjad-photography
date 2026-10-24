@@ -4,14 +4,14 @@ import { useState } from "react";
 import { serviceOptions } from "@/lib/site-data";
 
 const field =
-  "w-full border border-neutral-300 bg-white px-4 py-3 outline-none focus:border-black";
+  "w-full border border-secondary bg-card px-4 py-3 outline-none focus:border-primary";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
 
   if (sent) {
     return (
-      <p className="py-10 text-center font-serif text-2xl">
+      <p className="py-10 text-center font-heading text-primary text-3xl">
         Thank you! I&apos;ll be in touch soon.
       </p>
     );
@@ -51,7 +51,7 @@ export function ContactForm() {
       />
       <button
         type="submit"
-        className="bg-black px-8 py-3 text-sm uppercase tracking-widest text-white hover:bg-neutral-700 sm:col-span-2"
+        className="bg-primary px-8 py-3 text-sm uppercase tracking-widest text-primary-foreground hover:bg-primary/85 sm:col-span-2"
       >
         Send message
       </button>

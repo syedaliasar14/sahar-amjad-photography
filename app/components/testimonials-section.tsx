@@ -8,20 +8,20 @@ import { testimonials } from "@/lib/site-data";
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-neutral-100 py-20">
+    <section className="bg-secondary py-20">
       <div className="mx-auto max-w-3xl px-6 text-center">
-        <h2 className="font-serif text-4xl">Kind Words</h2>
+        <h2 className="font-heading text-5xl text-primary">Kind Words</h2>
         <Swiper
           modules={[Autoplay, Pagination]}
           loop
           pagination={{ clickable: true }}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
-          className="mt-10 pb-12"
+          className="mt-10 pb-12 [--swiper-theme-color:var(--primary)]"
         >
           {testimonials.map((t) => (
             <SwiperSlide key={t.name}>
               <blockquote className="px-4">
-                <p className="font-serif text-xl italic text-neutral-700 md:text-2xl">
+                <p className="font-heading text-2xl text-foreground md:text-3xl">
                   “{t.text}”
                 </p>
                 <footer className="mt-6 text-sm uppercase tracking-widest">

@@ -23,7 +23,7 @@ export function HeroSection() {
         {heroImages.map((s, i) => (
           <SwiperSlide key={s}>
             <Image
-              src={img(s, 1920, 1080)}
+              src={img(s)}
               alt=""
               fill
               priority={i === 0}
@@ -35,12 +35,12 @@ export function HeroSection() {
       </Swiper>
       <div className="absolute inset-0 z-10 bg-black/40" />
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 px-6 text-center">
-        <Logo className="scale-150" />
-        <h1 className="mt-4 font-serif text-4xl uppercase tracking-[0.25em] md:text-6xl">
-          Sahar Amjad Photography
+        
+        <h1 className="mt-4 font-heading text-5xl text-background tracking-wider md:text-7xl">
+          Sahar Amjad
         </h1>
-        <p className="text-sm uppercase tracking-widest opacity-80">
-          Timeless moments, beautifully captured
+        <p className="tracking-[0.6em] uppercase text-background">
+          Photography
         </p>
       </div>
     </section>

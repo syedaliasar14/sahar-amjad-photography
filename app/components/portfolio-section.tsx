@@ -11,14 +11,14 @@ export function PortfolioSection() {
   return (
     <section className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-20 md:grid-cols-2">
       <div>
-        <h2 className="font-serif text-4xl">Portfolio</h2>
-        <p className="mt-4 max-w-md text-neutral-600">
+        <h2 className="        font-heading text-5xl text-primary">Portfolio</h2>
+                <p className="mt-4 max-w-md text-foreground/70">
           From intimate elopements to bold fashion editorials, explore a
           collection of work crafted with light, emotion, and story.
         </p>
         <Link
           href="/portfolio"
-          className="mt-8 inline-block bg-black px-8 py-3 text-sm uppercase tracking-widest text-white hover:bg-neutral-700"
+          className="mt-8 inline-block bg-primary px-8 py-3 text-sm uppercase tracking-widest text-primary-foreground hover:bg-primary/85"
         >
           View Portfolio
         </Link>
@@ -34,7 +34,7 @@ export function PortfolioSection() {
           <SwiperSlide key={s}>
             <div className="relative aspect-[4/5] w-full">
               <Image
-                src={img(s, 800, 1000)}
+                src={img(s)}
                 alt="Portfolio sample"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"

@@ -13,8 +13,8 @@ export function PortfolioBrowser() {
 
   return (
     <>
-      <section className="bg-neutral-900 pt-32 pb-10 text-white">
-        <h1 className="text-center font-serif text-4xl md:text-5xl">
+      <section className="bg-primary pt-32 pb-10 text-primary-foreground">
+        <h1 className="text-center font-heading text-5xl md:text-6xl">
           Portfolio
         </h1>
         <Swiper
@@ -31,8 +31,8 @@ export function PortfolioBrowser() {
                 onClick={() => setActive(c)}
                 className={`border px-6 py-2 text-sm uppercase tracking-widest transition ${
                   active === c
-                    ? "border-white bg-white text-black"
-                    : "border-white/40 hover:border-white"
+                    ? "border-secondary bg-secondary text-foreground"
+                    : "border-primary-foreground/40 hover:border-secondary"
                 }`}
               >
                 {c}
@@ -42,12 +42,12 @@ export function PortfolioBrowser() {
         </Swiper>
       </section>
       <section className="mx-auto max-w-7xl px-6 py-16">
-        <h2 className="mb-8 font-serif text-3xl">{active}</h2>
+        <h2 className="mb-8 font-heading text-4xl text-primary">{active}</h2>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
           {categoryPhotos[active].map((seed) => (
             <div key={seed} className="relative aspect-[4/5] overflow-hidden">
               <Image
-                src={img(seed, 800, 1000)}
+                src={img(seed)}
                 alt={`${active} photo`}
                 fill
                 sizes="(min-width: 768px) 33vw, 50vw"

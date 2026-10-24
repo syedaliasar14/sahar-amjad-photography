@@ -8,7 +8,7 @@ import { services } from "@/lib/site-data";
 export function ServicesSection() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
-      <h2 className="text-center font-serif text-4xl">Services</h2>
+      <h2 className="text-center font-heading text-5xl text-primary">Services</h2>
       <Swiper
         modules={[Autoplay]}
         loop
@@ -23,9 +23,9 @@ export function ServicesSection() {
       >
         {services.map((s) => (
           <SwiperSlide key={s.title} className="h-auto!">
-            <div className="h-full border border-neutral-300 p-8">
-              <h3 className="font-serif text-2xl">{s.title}</h3>
-              <p className="mt-3 text-neutral-600">{s.description}</p>
+            <div className="h-full             border border-primary/30 bg-card p-8">
+                          <h3 className="font-heading text-3xl text-primary">{s.title}</h3>
+                          <p className="mt-3 text-foreground/70">{s.description}</p>
             </div>
           </SwiperSlide>
         ))}

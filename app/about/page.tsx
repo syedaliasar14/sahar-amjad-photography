@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "About | Sahar Amjad Photography" };
 export default function AboutPage() {
   return (
     <>
-      <div className="h-24 bg-neutral-900" />
+      <div className="h-24 bg-primary" />
       <AboutBlock
         title="Hi, I'm Sahar"
         text="I'm a photographer passionate about honest, emotional storytelling. With an eye for natural light and candid moments, I create images that feel as good as the day they were made."
