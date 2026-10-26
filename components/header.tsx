@@ -8,6 +8,7 @@ import {
   Sheet,
   SheetContent,
   SheetDescription,
+  SheetFooter,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -35,10 +36,10 @@ export function Header() {
               <AlignJustify strokeWidth={1.2} className="text-background" />
             </button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-72">
+          <SheetContent side="right" className="">
             <SheetTitle className="sr-only">Menu</SheetTitle>
             <SheetDescription className="sr-only">Site pages</SheetDescription>
-            <nav className="mt-12 flex flex-col gap-6 px-6 text-sm uppercase tracking-widest">
+            <nav className="mt-12 flex flex-col gap-6 px-6 text-sm uppercase tracking-[0.3em]">
               {navLinks.map((l) => (
                 <Link
                   key={l.href}
@@ -50,6 +51,9 @@ export function Header() {
                 </Link>
               ))}
             </nav>
+            <SheetFooter className="mt-auto px-6 pb-6 text-xs">
+              © 2026 Sahar Amjad Photography. All rights reserved.
+            </SheetFooter>
           </SheetContent>
         </Sheet>
       </div>
