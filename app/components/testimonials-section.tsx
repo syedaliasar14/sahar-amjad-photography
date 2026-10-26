@@ -5,28 +5,30 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { testimonials } from "@/lib/site-data";
+import { Quote } from "lucide-react";
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-secondary py-20">
+    <section className="py-20 relative">
+      <div className="absolute inset-0 z-0 bg-[url('/textures/stone.png')] opacity-80 bg-cover bg-center bg-no-repeat" />
       <div className="mx-auto max-w-3xl px-6 text-center">
-        <h2 className="font-heading text-5xl text-primary">Kind Words</h2>
         <Swiper
           modules={[Autoplay, Pagination]}
           loop
           pagination={{ clickable: true }}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
-          className="mt-10 pb-12 [--swiper-theme-color:var(--primary)]"
+          className="pt-6 pb-16 [--swiper-pagination-bottom:0px] [--swiper-theme-color:var(--primary)]"
         >
           {testimonials.map((t) => (
-            <SwiperSlide key={t.name}>
-              <blockquote className="px-4">
-                <p className="font-heading text-2xl text-foreground md:text-3xl">
-                  “{t.text}”
-                </p>
-                <footer className="mt-6 text-sm uppercase tracking-widest">
-                  {t.name}
-                </footer>
+            <SwiperSlide key={t.name} className="!h-auto">
+              <blockquote className="relative mx-4 py-14 text-background md:px-14">
+                <div className="bg-primary p-4 relative shadow-lg border border-background">
+                  <div className="absolute inset-0 bg-[url('/textures/stone.png')] opacity-10 pointer-events-none" />
+                  <p className="font-heading text-xl md:text-2xl italic">"{t.text}"</p>
+                  <footer className="mt-6 text-sm uppercase tracking-widest">
+                    - {t.name}
+                  </footer>
+                </div>
               </blockquote>
             </SwiperSlide>
           ))}

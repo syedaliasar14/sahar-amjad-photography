@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { AlignJustify } from "lucide-react";
-import { Logo } from "@/components/logo";
 import {
   Sheet,
   SheetContent,
@@ -19,13 +19,20 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-primary text-primary-foreground">
       <div className="mx-auto flex items-center justify-between px-6 py-2">
-        <Link href="/">
-          <Logo />
+        <Link href="/" className="flex items-center gap-2 font-heading tracking-wide text-background">
+          <Image
+            src="/logo-beige.svg"
+            alt="Sahar Amjad Photography"
+            width={48}
+            height={26}
+            priority
+          />
+          <span className="md:inline hidden">Sahar Amjad Photography</span>
         </Link>
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <button aria-label="Open menu" className="hover:opacity-70">
-              <AlignJustify strokeWidth={1.5} />
+              <AlignJustify strokeWidth={1.2} className="text-background" />
             </button>
           </SheetTrigger>
           <SheetContent side="right" className="w-72">

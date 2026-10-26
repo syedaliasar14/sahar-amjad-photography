@@ -47,7 +47,7 @@
 }
 
 :root {
-  --background: #F4F1EA;
+  --background: #ece4d2;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -81,14 +81,28 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+@custom-variant hover (&:hover);
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground selection:bg-accent selection:text-accent-foreground;
   }
   html {
     @apply font-sans;
+  }
+  button {
+    @apply cursor-pointer;
+  }
+  .btn {
+    @apply inline-block text-sm rounded-full px-8 py-1 uppercase tracking-[0.4em] font-thin text-foreground bg-background border border-background hover:bg-transparent hover:text-background transition-colors duration-300;
+  }
+  .btn-outline {
+    @apply inline-block text-sm rounded-full px-8 py-1 uppercase tracking-[0.4em] font-thin text-background border border-background hover:bg-background hover:text-foreground transition-colors duration-300;
+  }
+  .btn-primary {
+    @apply inline-block text-sm rounded-full px-8 py-1 uppercase tracking-[0.4em] font-thin text-primary-foreground bg-primary border border-primary hover:bg-transparent hover:text-primary transition-colors duration-300;
   }
 }

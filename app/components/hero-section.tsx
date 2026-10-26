@@ -5,8 +5,8 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import { Logo } from "@/components/logo";
 import { heroImages, img } from "@/lib/site-data";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -35,13 +35,31 @@ export function HeroSection() {
       </Swiper>
       <div className="absolute inset-0 z-10 bg-black/40" />
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 px-6 text-center">
-        
-        <h1 className="mt-4 font-heading text-5xl text-background tracking-wider md:text-7xl">
+
+        <Image
+          src="/logo-beige.svg"
+          alt="Sahar Amjad Photography"
+          width={144} height={64}
+          priority
+        />
+        <h1 className="mt-4 font-heading text-6xl text-background tracking-wider md:text-7xl">
           Sahar Amjad
         </h1>
-        <p className="tracking-[0.6em] uppercase text-background">
+        <p className="tracking-[1em] md:text-lg uppercase text-background">
           Photography
         </p>
+
+        <hr className="w-full max-w-md border-t border-background my-12" />
+
+        <div className="flex flex-col md:flex-row gap-8">
+          <Link href="/contact" className="btn-outline">
+            Contact
+          </Link>
+          <Link href="/portfolio" className="btn-outline">
+            Portfolio
+          </Link>
+        </div>
+
       </div>
     </section>
   );
