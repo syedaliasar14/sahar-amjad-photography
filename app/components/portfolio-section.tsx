@@ -12,7 +12,8 @@ export function PortfolioSection() {
     <section className="py-20 relative">
       <div className="absolute inset-0 z-0 bg-[url('/textures/stone2.png')] opacity-20 bg-cover bg-center bg-no-repeat" />
       <div className="mx-auto flex max-w-3xl flex-col items-center px-6 text-center mb-20 z-10 relative">
-        <p className="text-foreground/70 italic tracking-wide leading-[1.8]">
+        <h2 className="font-heading text-5xl text-primary mb-6">Heartfelt, Polished and Timeless</h2>
+        <p className="text-foreground/70 tracking-wide leading-[1.8]">
           From intimate elopements and heartfelt portraits to bold fashion
           editorials and polished product photography, explore a collection of
           work crafted with light, emotion, and story. Every session is

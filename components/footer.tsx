@@ -4,8 +4,9 @@ import { navLinks } from "@/lib/site-data";
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-background">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-10 md:flex-row text-center md:text-left">
+    <footer className="bg-primary text-background relative z-10">
+      <div className="absolute inset-0 bg-[url('/textures/stone3.png')] opacity-20 bg-cover bg-center bg-no-repeat z-0" />
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-10 md:flex-row text-center md:text-left relative z-10">
         <div>
           <Image
             src="/logo-beige.svg"
@@ -27,7 +28,7 @@ export function Footer() {
           ))}
         </nav>
       </div>
-      <p className="text-xs text-center mb-4">
+      <p className="text-xs text-center mb-4 relative z-10">
         © {new Date().getFullYear()} Sahar Amjad Photography. All rights reserved.
       </p>
     </footer>

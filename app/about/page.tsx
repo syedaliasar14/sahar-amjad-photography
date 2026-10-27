@@ -6,18 +6,25 @@ export const metadata: Metadata = { title: "About | Sahar Amjad Photography" };
 export default function AboutPage() {
   return (
     <>
-      <div className="h-24 bg-primary" />
-      <AboutBlock
-        title="Hi, I'm Sahar"
-        text="I'm a photographer passionate about honest, emotional storytelling. With an eye for natural light and candid moments, I create images that feel as good as the day they were made."
-        seed="about-1"
-      />
-      <AboutBlock
-        title="My Process"
-        text="Every session starts with a conversation about your vision. From planning and location scouting to shooting and a carefully edited gallery, I guide you through each step so you can simply be present."
-        seed="about-2"
-        reverse
-      />
+      <div className="relative h-24 bg-primary">
+        <div className="absolute inset-0 bg-[url('/textures/stone3.png')] opacity-20 bg-cover bg-center bg-no-repeat" />
+      </div>
+      <div className="relative">
+        <div className="absolute inset-0 bg-[url('/textures/paper.png')] opacity-50 bg-cover bg-center bg-no-repeat" />
+        <div className="relative z-10">
+          <AboutBlock
+            title="About Me"
+            text="I'm a photographer passionate about honest, emotional storytelling. With an eye for natural light and candid moments, I create images that feel as good as the day they were made."
+            seed="about-1"
+          />
+          <AboutBlock
+            title="My Process"
+            text="Every session starts with a conversation about your vision. From planning and location scouting to shooting and a carefully edited gallery, I guide you through each step so you can simply be present."
+            seed="about-2"
+            reverse
+          />
+        </div>
+      </div>
     </>
   );
 }

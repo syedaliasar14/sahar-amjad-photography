@@ -72,12 +72,12 @@ export const testimonials = [
 ];
 
 export const services = [
-  { title: "Weddings", price: "From $2,500", image: "service-weddings", description: "Full-day coverage of your celebration, told with warmth and artistry." },
-  { title: "Portraits", price: "From $350", image: "service-portraits", description: "Personal, natural portraits that reflect who you really are." },
-  { title: "Products", price: "From $400", image: "service-products", description: "Clean, compelling imagery that makes your products stand out." },
-  { title: "Fashion", price: "From $600", image: "service-fashion", description: "Editorial and lookbook shoots with a bold creative eye." },
-  { title: "Couples", price: "From $450", image: "service-couples", description: "Relaxed engagement and couples sessions full of connection." },
-  { title: "Elopements", price: "From $1,200", image: "service-elopements", description: "Intimate adventures documented from start to finish." },
+  { title: "Weddings", price: "$2,500", image: "service-weddings", description: "Full-day coverage of your celebration, told with warmth and artistry." },
+  { title: "Portraits", price: "$350", image: "service-portraits", description: "Personal, natural portraits that reflect who you really are." },
+  { title: "Products", price: "$400", image: "service-products", description: "Clean, compelling imagery that makes your products stand out." },
+  { title: "Fashion", price: "$600", image: "service-fashion", description: "Editorial and lookbook shoots with a bold creative eye." },
+  { title: "Couples", price: "$450", image: "service-couples", description: "Relaxed engagement and couples sessions full of connection." },
+  { title: "Elopements", price: "$1,200", image: "service-elopements", description: "Intimate adventures documented from start to finish." },
 ];
 
 export const serviceOptions = services.map((s) => s.title);

@@ -5,12 +5,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { testimonials } from "@/lib/site-data";
-import { Quote } from "lucide-react";
 
 export function TestimonialsSection() {
   return (
-    <section className="py-20 relative">
-      <div className="absolute inset-0 z-0 bg-[url('/textures/stone.png')] opacity-80 bg-cover bg-center bg-no-repeat" />
+    <section className="py-20 relative bg-foreground">
+      <div className="absolute inset-0 z-0 bg-[url('/textures/stone3.png')] opacity-20 bg-cover bg-center bg-no-repeat" />
       <div className="mx-auto max-w-3xl px-6 text-center">
         <Swiper
           modules={[Autoplay, Pagination]}
@@ -21,11 +20,11 @@ export function TestimonialsSection() {
         >
           {testimonials.map((t) => (
             <SwiperSlide key={t.name} className="!h-auto">
-              <blockquote className="relative mx-4 py-14 text-background md:px-14">
-                <div className="bg-primary p-4 relative shadow-lg border border-background">
-                  <div className="absolute inset-0 bg-[url('/textures/stone.png')] opacity-10 pointer-events-none" />
-                  <p className="font-heading text-xl md:text-2xl italic">"{t.text}"</p>
-                  <footer className="mt-6 text-sm uppercase tracking-widest">
+              <blockquote className="relative mx-4 py-14 text-background md:px-14 z-10">
+                <div className="bg-primary p-4 relative shadow-lg border border-background z-10">
+                  <div className="absolute inset-0 bg-[url('/textures/stone3.png')] opacity-20 pointer-events-none z-0" />
+                  <p className="font-heading text-xl md:text-2xl italic relative z-10">"{t.text}"</p>
+                  <footer className="mt-6 text-sm uppercase tracking-widest relative z-10">
                     - {t.name}
                   </footer>
                 </div>

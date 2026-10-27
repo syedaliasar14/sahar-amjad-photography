@@ -48,14 +48,14 @@
 
 :root {
   --background: #ece4d2;
-  --foreground: oklch(0.145 0 0);
+  --foreground: #391a00;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: #9b393d;
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: #E6D8B5;
+  --secondary: #d87042;
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -97,12 +97,12 @@
     @apply cursor-pointer;
   }
   .btn {
-    @apply inline-block text-sm rounded-full px-8 py-1 uppercase tracking-[0.4em] font-thin text-foreground bg-background border border-background hover:bg-transparent hover:text-background transition-colors duration-300;
+    @apply inline-block text-sm rounded-full px-8 py-1 uppercase tracking-[0.3em] font-thin text-foreground bg-background border border-background hover:bg-transparent hover:text-background transition-colors duration-300;
   }
   .btn-outline {
-    @apply inline-block text-sm rounded-full px-8 py-1 uppercase tracking-[0.4em] font-thin text-background border border-background hover:bg-background hover:text-foreground transition-colors duration-300;
+    @apply inline-block text-sm rounded-full px-8 py-1 uppercase tracking-[0.3em] font-thin text-background border border-background hover:bg-background hover:text-foreground transition-colors duration-300;
   }
   .btn-primary {
-    @apply inline-block text-sm rounded-full px-8 py-1 uppercase tracking-[0.4em] font-thin text-primary-foreground bg-primary border border-primary hover:bg-transparent hover:text-primary transition-colors duration-300;
+    @apply inline-block text-sm rounded-full px-8 py-1 uppercase tracking-[0.3em] font-thin text-primary-foreground bg-primary border border-primary hover:bg-transparent hover:text-primary transition-colors duration-300;
   }
 }
