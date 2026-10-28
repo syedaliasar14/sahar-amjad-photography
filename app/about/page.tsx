@@ -1,27 +1,33 @@
 import type { Metadata } from "next";
+import { sanityFetch } from "@/sanity/lib/live";
+import { ABOUT_PAGE_QUERY } from "@/sanity/queries/about-page";
 import { AboutBlock } from "./components/about-block";
 
 export const metadata: Metadata = { title: "About | Sahar Amjad Photography" };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const { data } = await sanityFetch({ query: ABOUT_PAGE_QUERY });
+
   return (
     <>
       <div className="relative h-24 bg-primary">
         <div className="absolute inset-0 bg-[url('/textures/stone3.png')] opacity-20 bg-cover bg-center bg-no-repeat" />
       </div>
-      <AboutBlock
-        title="About Me"
-        text="I'm a photographer passionate about honest, emotional storytelling. With an eye for natural light and candid moments, I create images that feel as good as the day they were made."
-        image="/sample1.png"
-        link={{ href: "/contact", label: "Contact Me" }}
-      />
-      <AboutBlock
-        title="My Process"
-        text="Every session starts with a conversation about your vision. From planning and location scouting to shooting and a carefully edited gallery, I guide you through each step so you can simply be present."
-        image="/sample2.png"
-        link={{ href: "/contact", label: "Contact Me" }}
-        reverse
-      />
+      {data?.sections?.map((s, i) => (
+        <AboutBlock
+          key={s._key}
+          title={s.title ?? ""}
+          text={s.text ?? ""}
+          image={s.image?.url}
+          imageAlt={s.image?.alt}
+          link={
+            s.buttonLink
+              ? { href: s.buttonLink, label: s.buttonLabel ?? "" }
+              : undefined
+          }
+          reverse={i % 2 === 1}
+        />
+      ))}
     </>
   );
 }

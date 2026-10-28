@@ -83,16 +83,28 @@ export type HeroSection = {
   }>;
 };
 
-export type HomePage = {
+export type AboutPage = {
   _id: string;
-  _type: "homePage";
+  _type: "aboutPage";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  hero?: HeroSection;
-  portfolio?: PortfolioSection;
-  testimonials?: TestimonialsSection;
-  services?: ServicesSection;
+  sections?: Array<{
+    title?: string;
+    text?: string;
+    buttonLabel?: string;
+    buttonLink?: string;
+    image?: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    };
+    _type: "aboutSection";
+    _key: string;
+  }>;
 };
 
 export type SanityImageCrop = {
@@ -109,6 +121,18 @@ export type SanityImageHotspot = {
   y: number;
   height: number;
   width: number;
+};
+
+export type HomePage = {
+  _id: string;
+  _type: "homePage";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  hero?: HeroSection;
+  portfolio?: PortfolioSection;
+  testimonials?: TestimonialsSection;
+  services?: ServicesSection;
 };
 
 export type SiteSettings = {
@@ -231,9 +255,10 @@ export type AllSanitySchemaTypes =
   | TestimonialsSection
   | PortfolioSection
   | HeroSection
-  | HomePage
+  | AboutPage
   | SanityImageCrop
   | SanityImageHotspot
+  | HomePage
   | SiteSettings
   | SanityImagePaletteSwatch
   | SanityImagePalette
@@ -244,6 +269,23 @@ export type AllSanitySchemaTypes =
   | SanityImageAsset
   | Geopoint
   | Slug;
+
+// Source: sanity/queries/about-page.ts
+// Variable: ABOUT_PAGE_QUERY
+// Query: *[_type == "aboutPage"][0]{  sections[]{    _key,    title,    text,    buttonLabel,    buttonLink,    "image": image{ "url": asset->url, alt }  }}
+export type ABOUT_PAGE_QUERY_RESULT = {
+  sections: Array<{
+    _key: string;
+    title: string | null;
+    text: string | null;
+    buttonLabel: string | null;
+    buttonLink: string | null;
+    image: {
+      url: string | null;
+      alt: string | null;
+    } | null;
+  }> | null;
+} | null;
 
 // Source: sanity/queries/home-page.ts
 // Variable: HOME_PAGE_QUERY
@@ -303,6 +345,7 @@ export type SITE_SETTINGS_QUERY_RESULT = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
+    '*[_type == "aboutPage"][0]{\n  sections[]{\n    _key,\n    title,\n    text,\n    buttonLabel,\n    buttonLink,\n    "image": image{ "url": asset->url, alt }\n  }\n}': ABOUT_PAGE_QUERY_RESULT;
     '*[_type == "homePage"][0]{\n  hero{\n    images[]{ "url": asset->url, alt }\n  },\n  portfolio{\n    title,\n    text,\n    images[]{ "url": asset->url, alt }\n  },\n  testimonials{\n    testimonials[]{ _key, name, text }\n  },\n  services{\n    title,\n    services[]{ _key, title, description, price, footnote, "image": image{ "url": asset->url, alt } }\n  }\n}': HOME_PAGE_QUERY_RESULT;
     '*[_type == "homePage"][0].services.services[].title': SERVICE_OPTIONS_QUERY_RESULT;
     '*[_type == "siteSettings"][0]{ title, description }': SITE_SETTINGS_QUERY_RESULT;

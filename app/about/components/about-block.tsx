@@ -5,12 +5,14 @@ export function AboutBlock({
   title,
   text,
   image,
+  imageAlt,
   reverse = false,
   link,
 }: {
   title: string;
   text: string;
-  image: string;
+  image?: string | null;
+  imageAlt?: string | null;
   reverse?: boolean;
   link?: { href: string; label: string };
 }) {
@@ -24,7 +26,7 @@ export function AboutBlock({
         }`}
       />
       <div
-        className={`relative z-10 mx-auto grid max-w-5xl items-center gap-10 px-6 py-16 md:grid-cols-3 ${
+        className={`relative z-10 mx-auto grid max-w-5xl items-center gap-10 px-6 py-20 md:grid-cols-3 ${
           reverse ? "" : "text-background"
         }`}
       >
@@ -33,7 +35,7 @@ export function AboutBlock({
             {title}
           </h2>
           <hr className={`my-8 max-w-20 ${reverse ? "border-primary" : "border-background"}`} />
-          <p className={`mt-4 ${reverse ? "text-foreground/70" : "text-background"}`}>{text}</p>
+          <p className={`mt-4 whitespace-pre-line ${reverse ? "text-foreground/70" : "text-background"}`}>{text}</p>
           {link && link.href && (
             <Link href={link.href} className={`${reverse ? "btn-primary" : "btn-outline"} mt-4 inline-block`}>
               {link.label || "Learn More"}
@@ -41,14 +43,18 @@ export function AboutBlock({
           )}
         </div>
         <div className="relative aspect-[4/5] w-full">
-          <div className="pointer-events-none absolute inset-0 translate-x-2 -translate-y-2 border-[1.5px] border-accent z-10" />
-          <Image
-            src={image}
-            alt={title}
-            fill
-            sizes="(min-width: 768px) 50vw, 100vw"
-            className="object-cover"
-          />
+          {image && (
+            <>
+              <div className="pointer-events-none absolute inset-0 translate-x-2 -translate-y-2 border-[1.5px] border-accent z-10" />
+              <Image
+                src={image}
+                alt={imageAlt ?? title}
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </>
+          )}
         </div>
       </div>
     </section>

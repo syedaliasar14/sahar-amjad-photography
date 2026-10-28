@@ -416,7 +416,7 @@
     }
   },
   {
-    "name": "homePage",
+    "name": "aboutPage",
     "type": "document",
     "attributes": {
       "_id": {
@@ -429,7 +429,7 @@
         "type": "objectAttribute",
         "value": {
           "type": "string",
-          "value": "homePage"
+          "value": "aboutPage"
         }
       },
       "_createdAt": {
@@ -450,35 +450,115 @@
           "type": "string"
         }
       },
-      "hero": {
+      "sections": {
         "type": "objectAttribute",
         "value": {
-          "type": "inline",
-          "name": "heroSection"
-        },
-        "optional": true
-      },
-      "portfolio": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "portfolioSection"
-        },
-        "optional": true
-      },
-      "testimonials": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "testimonialsSection"
-        },
-        "optional": true
-      },
-      "services": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "servicesSection"
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "title": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "text": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "buttonLabel": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "buttonLink": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "image": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "object",
+                  "attributes": {
+                    "asset": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "inline",
+                        "name": "sanity.imageAsset.reference"
+                      },
+                      "optional": true
+                    },
+                    "media": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "unknown"
+                      },
+                      "optional": true
+                    },
+                    "hotspot": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "inline",
+                        "name": "sanity.imageHotspot"
+                      },
+                      "optional": true
+                    },
+                    "crop": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "inline",
+                        "name": "sanity.imageCrop"
+                      },
+                      "optional": true
+                    },
+                    "alt": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      },
+                      "optional": true
+                    },
+                    "_type": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string",
+                        "value": "image"
+                      }
+                    }
+                  }
+                },
+                "optional": true
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "aboutSection"
+                }
+              }
+            },
+            "rest": {
+              "type": "object",
+              "attributes": {
+                "_key": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
         },
         "optional": true
       }
@@ -569,6 +649,75 @@
           },
           "optional": false
         }
+      }
+    }
+  },
+  {
+    "name": "homePage",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "homePage"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "hero": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "heroSection"
+        },
+        "optional": true
+      },
+      "portfolio": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "portfolioSection"
+        },
+        "optional": true
+      },
+      "testimonials": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "testimonialsSection"
+        },
+        "optional": true
+      },
+      "services": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "servicesSection"
+        },
+        "optional": true
       }
     }
   },

@@ -4,6 +4,7 @@ import type { StructureResolver } from 'sanity/structure'
 const singletons = [
   { type: 'siteSettings', title: 'Site Settings', icon: CogIcon },
   { type: 'homePage', title: 'Home Page', icon: DocumentIcon },
+  { type: 'aboutPage', title: 'About Page', icon: DocumentIcon },
 ]
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
