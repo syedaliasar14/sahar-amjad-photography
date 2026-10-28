@@ -1,8 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { navLinks } from "@/lib/site-data";
 
 export function Footer() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/studio")) return null;
+
   return (
     <footer className="bg-primary text-background relative z-10">
       <div className="absolute inset-0 bg-[url('/textures/stone3.png')] opacity-20 bg-cover bg-center bg-no-repeat z-0" />

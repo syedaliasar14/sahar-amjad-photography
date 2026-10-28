@@ -13,9 +13,13 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { navLinks } from "@/lib/site-data";
+import { usePathname } from "next/navigation";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/studio")) return null;
 
   return (
     <header className="sticky top-0 z-50 bg-primary text-primary-foreground">

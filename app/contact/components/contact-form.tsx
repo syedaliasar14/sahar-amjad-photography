@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { serviceOptions } from "@/lib/site-data";
 
 const field =
   "w-full border border-secondary bg-card px-4 py-3 outline-none focus:border-primary";
 
-export function ContactForm() {
+export function ContactForm({ serviceOptions }: { serviceOptions: string[] }) {
   const [sent, setSent] = useState(false);
 
   if (sent) {
@@ -51,7 +50,7 @@ export function ContactForm() {
       />
       <button
         type="submit"
-        className="bg-primary px-8 py-3 text-sm uppercase tracking-widest text-primary-foreground hover:bg-primary/85 sm:col-span-2"
+        className="btn-primary sm:col-span-2 py-2"
       >
         Send message
       </button>

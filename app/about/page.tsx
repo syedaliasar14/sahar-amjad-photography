@@ -9,22 +9,19 @@ export default function AboutPage() {
       <div className="relative h-24 bg-primary">
         <div className="absolute inset-0 bg-[url('/textures/stone3.png')] opacity-20 bg-cover bg-center bg-no-repeat" />
       </div>
-      <div className="relative">
-        <div className="absolute inset-0 bg-[url('/textures/paper.png')] opacity-50 bg-cover bg-center bg-no-repeat" />
-        <div className="relative z-10">
-          <AboutBlock
-            title="About Me"
-            text="I'm a photographer passionate about honest, emotional storytelling. With an eye for natural light and candid moments, I create images that feel as good as the day they were made."
-            seed="about-1"
-          />
-          <AboutBlock
-            title="My Process"
-            text="Every session starts with a conversation about your vision. From planning and location scouting to shooting and a carefully edited gallery, I guide you through each step so you can simply be present."
-            seed="about-2"
-            reverse
-          />
-        </div>
-      </div>
+      <AboutBlock
+        title="About Me"
+        text="I'm a photographer passionate about honest, emotional storytelling. With an eye for natural light and candid moments, I create images that feel as good as the day they were made."
+        image="/sample1.png"
+        link={{ href: "/contact", label: "Contact Me" }}
+      />
+      <AboutBlock
+        title="My Process"
+        text="Every session starts with a conversation about your vision. From planning and location scouting to shooting and a carefully edited gallery, I guide you through each step so you can simply be present."
+        image="/sample2.png"
+        link={{ href: "/contact", label: "Contact Me" }}
+        reverse
+      />
     </>
   );
 }

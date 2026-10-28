@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import { sanityFetch } from "@/sanity/lib/live";
+import { SERVICE_OPTIONS_QUERY } from "@/sanity/queries/services";
 import { ContactForm } from "./components/contact-form";
 
 export const metadata: Metadata = { title: "Contact | Sahar Amjad Photography" };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const { data } = await sanityFetch({ query: SERVICE_OPTIONS_QUERY, stega: false });
+  const serviceOptions = (data ?? []).filter((s): s is string => !!s);
+
   return (
     <>
       <div className="relative h-24 bg-primary">
@@ -16,7 +21,7 @@ export default function ContactPage() {
           <p className="mt-3 mb-10 text-center text-foreground">
             Tell me about your vision and let&apos;s create something beautiful.
           </p>
-          <ContactForm />
+          <ContactForm serviceOptions={serviceOptions} />
         </div>
       </section>
     </>

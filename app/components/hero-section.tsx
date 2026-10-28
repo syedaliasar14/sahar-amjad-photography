@@ -5,10 +5,12 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import { heroImages, img } from "@/lib/site-data";
 import Link from "next/link";
 
-export function HeroSection() {
+type HeroImage = { url: string | null; alt: string | null };
+
+export function HeroSection({ images }: { images?: HeroImage[] | null }) {
+  const slides = (images ?? []).filter((s) => s.url);
   return (
     <section className="relative h-screen min-h-[600px] w-full text-white">
       <Swiper
@@ -20,11 +22,11 @@ export function HeroSection() {
         allowTouchMove={false}
         className="absolute inset-0 h-full w-full"
       >
-        {heroImages.map((s, i) => (
-          <SwiperSlide key={s}>
+        {slides.map((s, i) => (
+          <SwiperSlide key={`${s.url}-${i}`}>
             <Image
-              src={img(s)}
-              alt=""
+              src={s.url!}
+              alt={s.alt ?? ""}
               fill
               priority={i === 0}
               sizes="100vw"
@@ -33,7 +35,7 @@ export function HeroSection() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="absolute inset-0 z-10 bg-black/40" />
+      <div className="absolute inset-0 z-10 bg-black/30" />
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 px-6 text-center">
 
         <Image
